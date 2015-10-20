@@ -1,10 +1,34 @@
 
 function initMap() {
+/*..........change what this map looks like.......................*/  
   var mapStyle = new google.maps.StyledMapType([
     {
       featureType: 'roads',
-      stylers: [{visibility: 'simple'}]
+      stylers: [
+        {visibility: 'simplified'}
+      ]
     },
+    {
+      elementType: 'labels',
+      stylers: [
+        {visibility: 'off'}
+      ]
+    },
+    {
+      featureType: 'landscapes',
+      stylers: [
+        {hue: '#cc0000'},
+        {saturation: 20},
+        {lightness: -30}
+      ]
+    },
+    {
+      featureType: 'water',
+      stylers: [
+        {color: '#eeeeee'}
+
+      ]
+    }
 
   ], {
     name: 'Custom Style'
@@ -12,6 +36,13 @@ function initMap() {
 
   var mapStyleId ='custom_style';
 
+/*-------------------put some sort of data here--------------------*/
+
+
+
+
+
+/*------------------make the map with markers and stuff----------------*/
 
 
   var origin = {lat: 0, lng: 0};
@@ -39,11 +70,12 @@ function initMap() {
     content: contentString
   });
 
-
+  var image = 'blue.png';
   var marker = new google.maps.Marker({
     position: marker1,
     map: map,
-    title: 'Hello World!'
+    title: 'Hello World!',
+    icon: image
   });
 
   marker.addListener('click', function() {
